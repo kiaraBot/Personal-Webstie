@@ -1,0 +1,63 @@
+﻿<!--
+    Alix Field
+    Controller: PayPalPayment
+    Method: PPPaymentIndex
+    Creates a form for the user to fill out and when submitted directes them to a PayPal login page.
+-->
+@{
+    ViewData["Title"] = "PPPaymentIndex";
+}
+
+<body >
+    <br />
+    <h2>
+        <center>
+            Make a Payment with PayPal
+        </center>
+    </h2>
+    <hr />
+
+    <form action="https://www.sandbox.PayPal.com/cgi-bin/webscr" method="post">
+
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="business" value="afield08-facilitator@gmail.com" />
+        <b>
+            Dreamscape IDO Painting by Alix Field
+        </b>
+        <input type="radio" name="item_name" value="Dreamscape IDO" />
+        <br />
+        <b>
+            Price:
+        </b>
+        $355.00
+        <br />
+        <br />
+
+        <b>
+            Enter the Void by Adrian Borda
+        </b>
+        <input type="radio" name="item_name2" value="EnterTheVoid" />
+        <br />
+        <b>
+            Price:
+        </b>
+        $1,665.00
+        <br />
+        <br />
+
+        <b>
+            Flowers From Exile by Adrian Borda
+        </b>
+        <input type="radio" name="item_name2" value="EnterTheVoid" />
+        <br />
+        <b>
+            Price:
+        </b>
+        $2,255.00
+        <br />
+        <br />
+        <input type="submit" value="Buy!" />
+    </form>
+</body>
+
+

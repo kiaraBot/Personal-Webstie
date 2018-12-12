@@ -1,0 +1,29 @@
+﻿@model FieldP3_PersonalWebsite.Models.Blog
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <br />
+    <h2 class="text-center">
+        @Html.DisplayFor(model => model.EntryTitle)
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.BlogId">Edit</a>
+        }
+    </h2>
+    <br />
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.Raw(Model.EntryContent)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

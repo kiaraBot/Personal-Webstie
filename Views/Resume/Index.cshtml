@@ -1,0 +1,162 @@
+﻿<!--
+    Alix Field
+    Controller: Resume
+    Method: Index
+    Allows the user to see the owner or admins Resume
+    Also, allows admin to edit their Resume
+-->
+
+@model ResumeViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!doctype html>
+<html lang="en">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+            <title>Resume Index</title>
+    </head>
+
+    <body style="background-color: #3f3942; color: #a4a4a5">
+        <br />
+        <div class="container pl-0" style="background-color: #a4a4a5 ">
+            <div class="row">
+                <div class="col">
+                    <img src="~/images/EnterTheVoid_AdrianBorda_GoogleImages.jpg" class="img-fluid w-100 h-auto float-left" />
+                </div>
+                <div class="col align-middle text-center">
+                    <br />
+                    <br />
+                    <h1 style="color: #472121; font-family: 'Lucida Handwriting', cursive;">
+                        <b>
+                            <big>
+                                Resume
+                            </big>
+                        </b>
+                    </h1>
+                    <h3 style="color: #472121; font-family: 'Bradley Hand ITC'; font-weight:600; ">
+                        @Model.Objective
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container" style="background-color: #a4a4a5 ">
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <h3 class="text-left font-weight-bold" style="color: #472121; font-family: 'Copperplate Gothic'">
+                        Skill Set <br />
+                    </h3>
+                    <h4>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Edit", "Index", "Skills")
+                        }
+                    </h4>
+                </div>
+                <div class="col">
+                    <h3 class="text-sm-left" style="color: #472121; font-family: Calibri; font-weight: 300; font-size: x-large">
+                        @foreach (var item in Model.SkillItems)
+                        {
+                            <ul>
+                                <li>
+                                    <b>
+                                        @Html.DisplayFor(modelItem => item.Title)<br />
+                                    </b>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </li>
+                            </ul>
+                        }
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container" style="background-color: #a4a4a5 ">
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <h3 class="text-left font-weight-bold" style="color: #472121; font-family: 'Copperplate Gothic'">
+                        Education <br />
+                    </h3>
+                    <h4>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Edit", "Index", "Educations")
+                        }
+                    </h4>
+                </div>
+                <div class="col">
+                    <h3 class="text-sm-left" style="color: #472121; font-family: Calibri; font-weight: 300; font-size: x-large">
+                        @foreach (var item in Model.EducationItems)
+                        {
+                            <ul>
+                                <li>
+                                    <b>
+                                        @Html.DisplayFor(modelItem => item.Degree)
+                                    </b>
+                                    <br />
+                                    @Html.DisplayFor(modelItem => item.Start) -
+                                    @Html.DisplayFor(modelItem => item.End)<br />
+                                    @Html.DisplayFor(modelItem => item.School)
+                                </li>
+                            </ul>
+                        }
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container" style="background-color: #a4a4a5 ">
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <h3 class="text-left font-weight-bold" style="color: #472121; font-family: 'Copperplate Gothic'">
+                        Experience<br />
+                    </h3>
+                    <h4>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Edit", "Index", "Experiences")
+                        }
+                    </h4>
+                </div>
+                <div class="col">
+                    <h3 class="text-sm-left" style="color: #472121; font-family: Calibri; font-weight: 300; font-size: x-large">
+                        @foreach (var item in Model.ExperienceItems)
+                        {
+                            <ul>
+                                <li>
+                                    <b>
+                                        @Html.DisplayFor(modelItem => item.Title)<br />
+                                    </b>
+                                    @Html.DisplayFor(modelItem => item.Start) -
+                                    @Html.DisplayFor(modelItem => item.End)<br />
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </li>
+                            </ul>
+                        }
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+

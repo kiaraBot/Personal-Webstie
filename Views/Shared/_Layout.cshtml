@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FieldP2_MVC_InvestmentCalc</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand" style="background-color: #cc92c2; border-color: #9280A2" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <text class="text-xl-left" style="color: #1e141f; font-family: 'Lucida Handwriting', cursive;">Alix Field</text>
+            </div>
+            <b>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav text-uppercase text-expanded text-left">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">Home</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Resume" asp-action="Index" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small ">Resume</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Blogs" asp-action="Index" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">Blog</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Portfolio" asp-action="PortfolioIndex" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">
+                                Portfolio
+                            </a>
+                        <li>
+                            <a asp-area="" asp-controller="PayPalPayment" asp-action="PPPaymentIndex" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">
+                                Payment
+                            </a>
+                        </li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-area="" asp-controller="ContactInfoes" asp-action="Index" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">Contacts</a>
+                            }
+                            else
+                            {
+                                <a asp-area="" asp-controller="ContactInfoes" asp-action="Create" class="nav-link" style="color: #1e141f; font-family: 'Copperplate Gothic'; font-size: small">
+                                Contact
+                                </a>
+                            }
+                        <li>
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                </div>
+            </b>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 Websites by Alix</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
+

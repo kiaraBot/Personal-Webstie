@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FieldP3_PersonalWebsite.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <br />
+    <h2 class="text-center">
+        Alix's Blog
+    </h2>
+    <h5>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-action="Create">Create New</a>
+        }
+    </h5>
+
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Content
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryDesc)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.BlogId">View Content</a>
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.BlogId">Edit</a> |*@
+
+                        @*<a asp-action="Delete" asp-route-id="@item.BlogId">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+

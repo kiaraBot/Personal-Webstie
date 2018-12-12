@@ -1,0 +1,33 @@
+﻿@model FieldP3_PersonalWebsite.Models.Blog
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h4 class="text-center">Are you sure you want to delete this post?</h4>
+<div>
+    <br />
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <h5>
+                @Html.DisplayFor(model => model.EntryTitle)
+            </h5>
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.EntryDesc)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.EntryContent)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BlogId" />
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <br />
+        <br />
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
